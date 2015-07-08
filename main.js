@@ -9,9 +9,9 @@ function jsonFlickrApi(data) {
     photo = data.photos.photo[i];
     photo_url = "http://farm" + photo.farm + ".static.flickr.com/" +
       photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
-    list +=   '<img alt="'+ photo.title + '"src="' + photo_url + '"/>' + '</a>';
+    list +=   '<li><img alt="'+ photo.title + '"src="' + photo_url + '"/>' + '</li>';
   };
-  $('#photo-grid').append(list);
+  $('#photo-grid').append("<ul class=\"small-block-grid-2 medium-block-grid-3 large-block-grid-4\">" + list + "</ul>");
 }
 
 function setSource() {
