@@ -29,7 +29,7 @@ PhotoGroup.prototype.displayPhotos = function() {
 
 PhotoGroup.prototype.getPhotoDetail = function(id) {
   group = this;
-  var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo" + "&api_key=" + flickr.apiKey + "&photo_id=" + id + "&format=json&jsoncallback=?"
+  var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo" + "&api_key=" + self.flickr.apiKey + "&photo_id=" + id + "&format=json&jsoncallback=?"
   $.ajax({
     url:        urlString,
     dataType:   "jsonp",

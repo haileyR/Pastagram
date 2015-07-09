@@ -1,7 +1,26 @@
-flickr = new Flickr();
-flickr.getData({method: 'flickr.people.getPublicPhotos', user_id: true, jsoncallback: 'init'});
-
-function init(data){
-  group = new PhotoGroup(data);
-  group.displayPhotos();
+PastagramController = function(flickr){
+  this.flickr = flickr;
+  self = this;
+  var urlString = "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos" + "&api_key=" + this.flickr.apiKey + "&user_id=" + this.flickr.userID + "&format=json&jsoncallback=?"
+  $.ajax({
+      url:        urlString,
+      dataType:   "jsonp",
+      success:    function(data){
+        self.photoGroup = new PhotoGroup(data);
+        self.photoGroup.displayPhotos();
+      }
+  });
+  self._bindEventListener()
 }
+
+PastagramController.prototype._bindEventListener = function(){
+  var self = this;
+  $('.view-sort').on('click', function(event){
+    self.photoGroup.sortByViews();
+  });
+
+}
+
+Pastagram = function() { new PastagramController(new Flickr()) }
+
+Pastagram();
