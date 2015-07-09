@@ -19,14 +19,6 @@ PhotoGroup.prototype.addPhotosToGroup = function(photoData) {
   };
 }
 
-PhotoGroup.prototype.displayPhotos = function() {
-  var html = "";
-  for (var id in this.photoList) {
-    html += '<li><img alt="'+ this.photoList[id].title + '"src="' + this.photoList[id].url + '"/>' + '</li>';
-  };
-  $('#photo-grid').append("<ul class=\"small-block-grid-2 medium-block-grid-3 large-block-grid-4\">" + html + "</ul>");
-}
-
 PhotoGroup.prototype.getPhotoDetail = function(id) {
   group = this;
   var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo" + "&api_key=" + self.flickr.apiKey + "&photo_id=" + id + "&format=json&jsoncallback=?"
