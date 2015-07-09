@@ -20,10 +20,10 @@ PastagramController.prototype._bindEventListener = function(){
     self.photoGroup.sortByViews();
   });
   $('#recent-sort').on('click', function(event){
-    self.photoGroup.sortByDateTaken();
+    self.photoGroup.sortBy("date-posted-desc");
   });
   $('#interest-sort').on('click', function(event){
-    self.photoGroup.sortByInterestingness();
+    self.photoGroup.sortBy("interestingness-desc");
   });
 }
 

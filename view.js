@@ -6,7 +6,7 @@ PastagramView.prototype.displayPhotos = function(photoList) {
     if (photoList[0].title != undefined) {
       for (var i=0; i < photoList.length; i++) {
         var photo = photoList[i];
-        html += '<li><div class="img-container"><img alt="'+ photo.title + '"src="' + "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg\"/>" + '<div class="info">Title: ' + photo.title + '<br>Date Taken: ' + self.photoGroup.photoList[photo.id].dateTaken + '</div></div></div></li>';
+        html += '<li><div class="img-container"><img alt="'+ photo.title + '"src="' + "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg\"/>" + '<div class="info"><i class="favorite icon"></i>' + self.photoGroup.photoList[photo.id].views + 'views<br>Title: ' + photo.title + '<br>Date Taken: ' + self.photoGroup.photoList[photo.id].dateTaken + '</div></div></div></li>';
       };
     } else {
       // popular
