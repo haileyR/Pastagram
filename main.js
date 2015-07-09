@@ -1,5 +1,6 @@
-PastagramController = function(flickr){
+PastagramController = function(flickr, view){
   this.flickr = flickr;
+  this.view = view;
   self = this;
   var urlString = "https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos" + "&api_key=" + this.flickr.apiKey + "&user_id=" + this.flickr.userID + "&format=json&jsoncallback=?"
   $.ajax({
