@@ -15,6 +15,7 @@ PhotoGroup.prototype.addPhotosToGroup = function(photoData) {
       dateUploaded: null,
       views: 0
     }
+    this.getPhotoDetail(photo.id);
   };
 }
 
@@ -26,3 +27,16 @@ PhotoGroup.prototype.displayPhotos = function() {
   $('#photo-grid').append("<ul class=\"small-block-grid-2 medium-block-grid-3 large-block-grid-4\">" + html + "</ul>");
 }
 
+PhotoGroup.prototype.getPhotoDetail = function(id) {
+  group = this;
+  var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo" + "&api_key=" + flickr.apiKey + "&photo_id=" + id + "&format=json&jsoncallback=?"
+  $.ajax({
+    url:        urlString,
+    dataType:   "jsonp",
+    success:    function(data){
+      group.photoList[id].tags = data.photo.tags;
+      group.photoList[id].dateUploaded = data.photo.dateuploaded;
+      group.photoList[id].views = data.photo.views;
+    }
+  });
+}
