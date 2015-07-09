@@ -1,13 +1,19 @@
 function PastagramView() {}
 
 PastagramView.prototype.displayPhotos = function(photoList) {
-
   var html = "";
   if (photoList.length > 0) {
-    for (var i=0; i < photoList.length; i++) {
-      html += '<li><img alt="'+ photoList[i][1].title + '"src="' + photoList[i][1].url + '"/>' + '</li>';
-    };
-  }else {
+    if (photoList[0].title != undefined) {
+      for (var i=0; i < photoList.length; i++) {
+        var photo = photoList[i];
+        html += '<li><img alt="'+ photo.title + '"src="' + "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg" + '"/>' + '</li>';
+      };
+    } else {
+      for (var i=0; i < photoList.length; i++) {
+        html += '<li><img alt="'+ photoList[i][1].title + '"src="' + photoList[i][1].url + '"/>' + '</li>';
+      };
+    }
+  } else {
     for (var id in photoList) {
       html += '<li><img alt="'+ photoList[id].title + '"src="' + photoList[id].url + '"/>' + '</li>';
     };
