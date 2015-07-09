@@ -56,3 +56,15 @@ PhotoGroup.prototype.sortByDateUploaded = function() {
       }
   });
 }
+
+PhotoGroup.prototype.sortByInterestingness = function() {
+  var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search" + "&api_key=" + self.flickr.apiKey + "&user_id=" + self.flickr.userID + "&sort=interestingness-desc&privacy_filter=1" + "&format=json&jsoncallback=?"
+  $.ajax({
+      url:        urlString,
+      dataType:   "jsonp",
+      success:    function(data){
+        var sorted = data;
+        self.view.displayPhotos(data.photos.photo);
+      }
+  });
+}

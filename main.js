@@ -22,6 +22,9 @@ PastagramController.prototype._bindEventListener = function(){
   $('#recent-sort').on('click', function(event){
     var sortedList = self.photoGroup.sortByDateUploaded();
   });
+  $('#interest-sort').on('click', function(event){
+    var sortedList = self.photoGroup.sortByInterestingness();
+  });
 }
 
 Pastagram = function() {
