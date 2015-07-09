@@ -4,10 +4,14 @@ function Flickr(photoData) {
 }
 
 Flickr.prototype.getData = function(parameters) {
-  var script = document.createElement('script');
-  script.src = "https://api.flickr.com/services/rest/?" + "method=" + parameters.method + "&api_key=" + this.apiKey + (parameters.user_id ? "&user_id=" + this.userID : "" ) + "&format=json"
-  $('head').append(script);
-  $('head').remove(script);
+  var urlString = "https://api.flickr.com/services/rest/?" + "method=" + parameters.method + "&api_key=" + this.apiKey + (parameters.user_id ? "&user_id=" + this.userID : "" ) + (parameters.photo_id ? "&photo_id=" + parameters.photo_id : "")  + "&format=json&jsoncallback=?"
+  $.ajax({
+      url:        urlString,
+      dataType:   "jsonp",
+      success:    function(data){
+        init(data);
+      }
+  });
 }
 
 
