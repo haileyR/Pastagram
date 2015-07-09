@@ -4,15 +4,25 @@
   <head>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <title>Pastagram</title>
   </head>
 <body>
-  <header>
+  <header align="center">
     <h1 align="center">Pastagram</h1>
-    <a id="view-sort" class="button">SORT by View count</a>
-    <a id="recent-sort" class="button">SORT by Most recent</a>
-    <a id="interest-sort" class="button">SORT by Interestingness</a>
+    <div id="button-container">
+      <ul>
+        <li><a id="view-sort">Popular</a></li>
+        <li><a id="recent-sort">Recent</a></li>
+        <li><a id="interest-sort">Interesting</a></li>
+      </ul>
+    </div>
+
+
+
   </header>
   <div id="photo-grid"></div>
   <script src="photo_group.js"></script>
