@@ -1,22 +1,28 @@
 function PhotoGroup(photoData) {
   this.photoIds = [];
-  this.photos = this.addPhotosToGroup(photoData);
+  this.photoList = {};
+  this.addPhotosToGroup(photoData);
 }
 
 PhotoGroup.prototype.addPhotosToGroup = function(photoData) {
-  var group = [];
   for (var i=0; i < photoData.photos.photo.length; i++) {
-    photoObj = new Photo(photoData.photos.photo[i])
-    group.push(photoObj);
-    this.photoIds.push(photoObj.id);
+    photo = photoData.photos.photo[i];
+    this.photoList[photo.id] = {
+      title: photo.title,
+      url: "http://farm" + photo.farm + ".static.flickr.com/" +
+        photo.server + "/" + photo.id + "_" + photo.secret + ".jpg",
+      tags: null,
+      dateUploaded: null,
+      views: 0
+    }
   };
-  return group;
 }
 
 PhotoGroup.prototype.displayPhotos = function() {
   var html = "";
-  for (var i=0; i < this.photos.length; i++) {
-    html +=   '<li><img alt="'+ this.photos[i].title + '"src="' + this.photos[i].url + '"/>' + '</li>';
+  for (var id in this.photoList) {
+    html += '<li><img alt="'+ this.photoList[id].title + '"src="' + this.photoList[id].url + '"/>' + '</li>';
   };
   $('#photo-grid').append("<ul class=\"small-block-grid-2 medium-block-grid-3 large-block-grid-4\">" + html + "</ul>");
 }
+
