@@ -16,11 +16,12 @@ PastagramController = function(flickr, view){
 
 PastagramController.prototype._bindEventListener = function(){
   var self = this;
-  $('.view-sort').on('click', function(event){
-    sortedList = self.photoGroup.sortByViews();
-    self.view.displayPhotos(sortedList);
+  $('#view-sort').on('click', function(event){
+    self.photoGroup.sortByViews();
   });
-
+  $('#recent-sort').on('click', function(event){
+    var sortedList = self.photoGroup.sortByDateUploaded();
+  });
 }
 
 Pastagram = function() {
