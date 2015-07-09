@@ -40,3 +40,15 @@ PhotoGroup.prototype.getPhotoDetail = function(id) {
     }
   });
 }
+
+PhotoGroup.prototype.sortByViews = function() {
+  var sortable = [];
+  for (var photo in this.photoList) {
+    sortable.push([photo, this.photoList[photo]]);
+  }
+  sortable.sort(function(a, b) {
+    return parseInt(a[1].views) - parseInt(b[1].views)
+  })
+  sortable.reverse();
+  return sortable;
+}
