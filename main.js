@@ -8,20 +8,25 @@ PastagramController = function(flickr, view){
       dataType:   "jsonp",
       success:    function(data){
         self.photoGroup = new PhotoGroup(data);
-        self.photoGroup.displayPhotos();
+        self.view.displayPhotos(self.photoGroup.photoList);
       }
   });
-  self._bindEventListener()
+  self._bindEventListener();
 }
 
 PastagramController.prototype._bindEventListener = function(){
   var self = this;
   $('.view-sort').on('click', function(event){
-    self.photoGroup.sortByViews();
+    sortedList = self.photoGroup.sortByViews();
+    self.view.displayPhotos(sortedList);
   });
 
 }
 
-Pastagram = function() { new PastagramController(new Flickr()) }
+Pastagram = function() {
+  new PastagramController(
+    new Flickr(),
+    new PastagramView()
+  )}
 
 Pastagram();
