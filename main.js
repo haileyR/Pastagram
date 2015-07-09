@@ -20,7 +20,7 @@ PastagramController.prototype._bindEventListener = function(){
     self.photoGroup.sortByViews();
   });
   $('#recent-sort').on('click', function(event){
-    self.photoGroup.sortByDateUploaded();
+    self.photoGroup.sortByDateTaken();
   });
   $('#interest-sort').on('click', function(event){
     self.photoGroup.sortByInterestingness();

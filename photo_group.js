@@ -27,7 +27,7 @@ PhotoGroup.prototype.getPhotoDetail = function(id) {
     dataType:   "jsonp",
     success:    function(data){
       group.photoList[id].tags = data.photo.tags;
-      group.photoList[id].dateUploaded = data.photo.dateuploaded;
+      group.photoList[id].dateUploaded = data.photo.dates.taken;
       group.photoList[id].views = data.photo.views;
     }
   });
@@ -45,7 +45,7 @@ PhotoGroup.prototype.sortByViews = function() {
   self.view.displayPhotos(sortable);
 }
 
-PhotoGroup.prototype.sortByDateUploaded = function() {
+PhotoGroup.prototype.sortByDateTaken = function() {
   var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search" + "&api_key=" + self.flickr.apiKey + "&user_id=" + self.flickr.userID + "&sort=date-posted-desc&privacy_filter=1" + "&format=json&jsoncallback=?"
   $.ajax({
       url:        urlString,
