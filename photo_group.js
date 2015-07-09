@@ -42,5 +42,17 @@ PhotoGroup.prototype.sortByViews = function() {
     return parseInt(a[1].views) - parseInt(b[1].views)
   })
   sortable.reverse();
-  return sortable;
+  self.view.displayPhotos(sortable);
+}
+
+PhotoGroup.prototype.sortByDateUploaded = function() {
+  var urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search" + "&api_key=" + self.flickr.apiKey + "&user_id=" + self.flickr.userID + "&sort=date-posted-desc&privacy_filter=1" + "&format=json&jsoncallback=?"
+  $.ajax({
+      url:        urlString,
+      dataType:   "jsonp",
+      success:    function(data){
+        var sorted = data;
+        self.view.displayPhotos(data.photos.photo);
+      }
+  });
 }
