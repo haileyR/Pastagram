@@ -1,0 +1,24 @@
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 5em;
+  margin: 0.5em;
+}
+
+.img-container {
+  border: solid gainsboro 1px;
+  height: 330px;
+  padding: 1em;
+  position: relative;
+}
+
+#photo-grid {
+  margin: 1em 3.5em;
+}
+
+.info {
+  font-size: 1.3em;
+  font-family: 'Signika', sans-serif;
+  position: absolute;
+  bottom: 0.5em;
+  color: darkslategrey;
+}
