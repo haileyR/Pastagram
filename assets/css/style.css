@@ -1,13 +1,27 @@
+header {
+  margin-top: 2em; }
+
 h1 {
   font-family: 'Pacifico', cursive;
   font-size: 5em;
   margin: 0.5em; }
 
 .img-container {
-  border: solid gainsboro 1px;
   height: 330px;
   padding: 1em;
-  position: relative; }
+  position: relative;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  box-shadow: inset 0 0 0 1px gainsboro, 0 0 1px transparent; }
+
+.img-container:hover {
+  box-shadow: inset 0 0 0 4px pink, 0 0 1px transparent; }
 
 #photo-grid {
   margin: 1em 3.5em; }
@@ -17,4 +31,12 @@ h1 {
   font-family: 'Signika', sans-serif;
   position: absolute;
   bottom: 0.5em;
-  color: darkslategrey; }
+  color: black;
+  text-shadow: 1px 1px 1px white, 0 0 5em white, 0 0 0.2em white, 0 0 0.2em white; }
+
+i {
+  color: pink;
+  text-shadow: 1px 1px 1px violet, 0 0 5em violet, 0 0 0.2em violet, 0 0 0.2em violet; }
+
+#by-name {
+  font-size: x-large; }
