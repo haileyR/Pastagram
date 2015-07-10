@@ -16,7 +16,7 @@ h1 {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
-  transition-duration: 0.3s;
+  transition-duration: 1s;
   transition-property: box-shadow;
   box-shadow: inset 0 0 0 1px gainsboro, 0 0 1px transparent; }
 

@@ -27,9 +27,6 @@ PastagramController.prototype._bindEventListener = function(){
   $('#interest-sort').on('click', function(event){
     self.photoGroup.sortBy("interestingness-desc");
   });
-  $('.ui.sticky')
-    .sticky()
-  ;
 };
 
 function Pastagram() {
