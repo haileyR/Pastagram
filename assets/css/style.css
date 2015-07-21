@@ -6,10 +6,11 @@ h1 {
   font-size: 5em;
   margin: 0.5em; }
 
-.img-container {
-  height: 330px;
+div.img-container {
   padding: 1em;
   position: relative;
+  text-align: center;
+  height: 480px;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   box-shadow: 0 0 1px transparent;
@@ -27,6 +28,7 @@ h1 {
   margin: 1em 3.5em; }
 
 .info {
+  text-align: left;
   font-size: 1.3em;
   font-family: 'Signika', sans-serif;
   position: absolute;
@@ -40,3 +42,9 @@ i {
 
 #by-name {
   font-size: x-large; }
+
+div.img-container img {
+  vertical-align: middle;
+  max-height: 380px;
+  /* Firefox 2 */
+  display: inline-block; }
